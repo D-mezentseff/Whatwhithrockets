@@ -24,7 +24,6 @@ $(document).ready(function(){
     else
     {
     alert("Банок краски необходимо: "+Math.ceil(kol))
-    $('#res1').append('<p>***</p>')
     }
     }
     });
