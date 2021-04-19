@@ -51,8 +51,8 @@ let i= [ [2,2,3,4,5],
 
 
 //Task 3 Универсальная функция расчёта количества букв меньшего слова
-string = 'Get out of my room!!!'
-const shortestWord = str =>  str.toString() ? str.split(' ').reduce((shortw, longw) => longw.length < shortw.length ? longw :shortw).length: ''
+let string = 'Get out of my room!!!'
+const shortestWord = str =>  String(str) ? str.split(' ').reduce((shortw, longw) => longw.length < shortw.length ? longw :shortw).length: ''
   
   $('#resTask3').click(() =>  alert("Количество символов самого короткого слова: "+shortestWord(string)));  //Запуск с готовой строкой"
 
