@@ -1,8 +1,9 @@
-const chronos = (year, month,day) =>{
-    year<500 ? sum = Math.trunc(year/5) - Math.trunc(year/100):sum = Math.trunc(year/5)+Math.trunc(year/500) - Math.trunc(year/100)
+const chronos = (year, month, day) =>{
+    year < 500 ? sum = Math.trunc(year / 5) - Math.trunc(year / 100):(year % 500 == 0 && month <= 2 && day < 31) ?sum = Math.trunc(year / 5) + Math.trunc(year / 500)-Math.trunc(year / 100) - 1:
+    sum = Math.trunc(year / 5) + Math.trunc(year / 500) - Math.trunc(year / 100)
     console.log(sum)
-    count = (year-1)*360+(month-1)*30+day+sum;
-    switch(count %7)
+    count = (year - 1) * 360 + (month - 1) * 30 + day + sum;
+    switch(count % 7)
     {
         case 0 : {return "Saturday";
         break;
@@ -27,4 +28,4 @@ const chronos = (year, month,day) =>{
         }
     }
     }
-    alert(chronos(year, month,day))
+    alert(chronos(year, month, day))
