@@ -17,7 +17,7 @@ const iPDifference = (iP1, iP2) => {
   return nP2 - nP1 - 1
 }
 
-$('#resTask1').click( () =>  alert("Количество символов самого короткого слова: " +iPDifference(iPv4a, iPv4b))) //Запуск с готовой строкой"
+$('#resTask1').click( () =>  alert("Количество адрессов: " +iPDifference(iPv4a, iPv4b))) //Запуск с готовой строкой"
 
 
 //Task 2 Декодер морзянки
@@ -33,7 +33,7 @@ const morseCode = () => {
     request.send();
     request.onload = () => {
     let code = request.response
-     alert("Количество символов самого короткого слова: " +morseDecode(morse1, code))
+     alert("Декодированная морзянка: " +morseDecode(morse1, code))
     }
     } 
 
