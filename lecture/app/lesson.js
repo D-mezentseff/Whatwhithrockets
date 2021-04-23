@@ -86,31 +86,122 @@ const got = ['Dayneris', 'John Snow', 'Dragon 1',
 // const got2 = [].concat(1, 2, 3, got)
 // console.log(got2)
 // console.log(got)
-console.log(Array.from('Hello'))
+// console.log(Array.from('Hello'))
 
-// const got2 = Array.from(got)
-// got2.a = 34343
-// console.log(got2)
-// console.log(got)
+// // const got2 = Array.from(got)
+// // got2.a = 34343
+// // console.log(got2)
+// // console.log(got)
 
-const dragon = {
-    weight : 2000,
-    wings : 2,
-    isFire : true,
-    wingsWidth : 30,
-    name : 'Drakon',
-    owner : "Dayaneris"  
+// const dragon = {
+//     weight : 2000,
+//     wings : 2,
+//     isFire : true,
+//     wingsWidth : 30,
+//     name : 'Drakon',
+//     owner : "Dayaneris"  
       
+// }
+// const got2 = Array.from(dragon)
+// // console.log(got2)
+// function shownGot(el) {
+//     console.log(...arguments)
+//     el.forEach(element => console.log(element))
+// }
+// shownGot(got)
+
+
+// console.log(Array.from([1, 2, 3], x => x + x));
+// // expected output: Array [2, 4, 6]
+
+
+
+
+
+const p = {
+    w : 3,
+    h : 3,
+    d : 2
 }
-const got2 = Array.from(dragon)
-// console.log(got2)
-function shownGot(el) {
-    console.log(...arguments)
-    el.forEach(element => console.log(element))
+console.log(p)
+class Box{
+    #w
+    #h
+    #d
+    
+    static count = 0
+
+    static getCount(){
+        return `Count of object class Box = ${Box.count}`
+    }
+    constructor(w, h, d){
+        this.setSizes(w, h, d)
+        Box.count++
+    }
+
+    setSizes(w,h,d){
+        this.#w = w
+        this.#h = h
+        this.#d = d
+    }
+    getVolume(){
+        const v = this.#w * this.#h * this.#d
+        return v
+    }
+    #invalidWHD(len){
+        return len < 0 || len > 100000 || isNaN(+len)
+    }
+    set w(width){
+        if(this.#invalidWHD(width)){
+            return false
+        }
+        this.#w = width
+    }
+    get w(){  // getter, no arguments
+        return this.#w
+    }
 }
-shownGot(got)
+class Box2{
+    setSizes(w,h,d){
+        this.w = w
+        this.h = h
+        this.d = d
+    }
+}
+
+const b = new Box(3, 3, 2)
+const b2 = new Box2()
+b2.setSizes(3, 3, 2)
+b.setW = "тысяча"
+b.w = 1000
+console.log(b)
+console.log(b2)
+console.log(b.w)
+// b.#invalidWHD() // private
+
+console.log(Box.getCount())
 
 
-console.log(Array.from([1, 2, 3], x => x + x));
-// expected output: Array [2, 4, 6]
+class BoxMagic extends Box{
+    #material
+    #weight
+    #thickness
+    constructor(w, h, d, material, weight, thickness){
+        super(w, h, d)
+        this.#material = material
+        this.#weight = weight
+        this.#thickness = thickness
+    }
 
+    getVolume(){
+        const thickness2 = this.#thickness * 2
+        const v = (thickness2 + super.w) * (thickness2 + super.h)
+        * (thickness2 + super.d)
+        return v // Вызов getVolume родителя
+    }
+}
+
+const bm = new BoxMagic(3, 2, 1, 'plastic', 0.3, 0.005)
+
+console.log(bm)
+console.log(bm.getVolume())
