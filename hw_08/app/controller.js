@@ -12,6 +12,6 @@ export default class Controller{
     }
 
     handleLoadData = (data) => {
-        this.view.renderUser(data);
+        this.view.renderWeather(data);
     }
 }
