@@ -115,93 +115,94 @@ const got = ['Dayneris', 'John Snow', 'Dragon 1',
 // // expected output: Array [2, 4, 6]
 
 
-
-
-
-const p = {
-    w : 3,
-    h : 3,
-    d : 2
-}
-console.log(p)
-class Box{
-    #w
-    #h
-    #d
+// const p = {
+//     w : 3,
+//     h : 3,
+//     d : 2
+// }
+// console.log(p)
+// class Box{
+//     #w
+//     #h
+//     #d
     
-    static count = 0
+//     static count = 0
 
-    static getCount(){
-        return `Count of object class Box = ${Box.count}`
-    }
-    constructor(w, h, d){
-        this.setSizes(w, h, d)
-        Box.count++
-    }
+//     static getCount(){
+//         return `Count of object class Box = ${Box.count}`
+//     }
+//     constructor(w, h, d){
+//         this.setSizes(w, h, d)
+//         Box.count++
+//     }
 
-    setSizes(w,h,d){
-        this.#w = w
-        this.#h = h
-        this.#d = d
-    }
-    getVolume(){
-        const v = this.#w * this.#h * this.#d
-        return v
-    }
-    #invalidWHD(len){
-        return len < 0 || len > 100000 || isNaN(+len)
-    }
-    set w(width){
-        if(this.#invalidWHD(width)){
-            return false
-        }
-        this.#w = width
-    }
-    get w(){  // getter, no arguments
-        return this.#w
-    }
-}
-class Box2{
-    setSizes(w,h,d){
-        this.w = w
-        this.h = h
-        this.d = d
-    }
-}
+//     setSizes(w,h,d){
+//         this.#w = w
+//         this.#h = h
+//         this.#d = d
+//     }
+//     getVolume(){
+//         const v = this.#w * this.#h * this.#d
+//         return v
+//     }
+//     #invalidWHD(len){
+//         return len < 0 || len > 100000 || isNaN(+len)
+//     }
+//     set w(width){
+//         if(this.#invalidWHD(width)){
+//             return false
+//         }
+//         this.#w = width
+//     }
+//     get w(){  // getter, no arguments
+//         return this.#w
+//     }
+// }
+// class Box2{
+//     setSizes(w,h,d){
+//         this.w = w
+//         this.h = h
+//         this.d = d
+//     }
+// }
 
-const b = new Box(3, 3, 2)
-const b2 = new Box2()
-b2.setSizes(3, 3, 2)
-b.setW = "тысяча"
-b.w = 1000
-console.log(b)
-console.log(b2)
-console.log(b.w)
-// b.#invalidWHD() // private
+// const b = new Box(3, 3, 2)
+// const b2 = new Box2()
+// b2.setSizes(3, 3, 2)
+// b.setW = "тысяча"
+// b.w = 1000
+// console.log(b)
+// console.log(b2)
+// console.log(b.w)
+// // b.#invalidWHD() // private
 
-console.log(Box.getCount())
+// console.log(Box.getCount())
 
 
-class BoxMagic extends Box{
-    #material
-    #weight
-    #thickness
-    constructor(w, h, d, material, weight, thickness){
-        super(w, h, d)
-        this.#material = material
-        this.#weight = weight
-        this.#thickness = thickness
-    }
+// class BoxMagic extends Box{
+//     #material
+//     #weight
+//     #thickness
+//     constructor(w, h, d, material, weight, thickness){
+//         super(w, h, d)
+//         this.#material = material
+//         this.#weight = weight
+//         this.#thickness = thickness
+//     }
 
-    getVolume(){
-        const thickness2 = this.#thickness * 2
-        const v = (thickness2 + super.w) * (thickness2 + super.h)
-        * (thickness2 + super.d)
-        return v // Вызов getVolume родителя
-    }
-}
+//     getVolume(){
+//         const thickness2 = this.#thickness * 2
+//         const v = (thickness2 + super.w) * (thickness2 + super.h)
+//         * (thickness2 + super.d)
+//         return v // Вызов getVolume родителя
+//     }
+// }
 
-const bm = new BoxMagic(3, 2, 1, 'plastic', 0.3, 0.005)
+// const bm = new BoxMagic(3, 2, 1, 'plastic', 0.3, 0.005)
 
-console.log(bm)
-console.log(bm.getVolume())
+// console.log(bm)
+// console.log(bm.getVolume())
+
+// import Controller from "./controller"
+
+// const controller = Controller

@@ -470,3 +470,50 @@ console.log(got)
 
 
 __super__ в конструкторе ребёнка, должен быть вызван до того момента, как будет обращение к __this__
+
+
+
+
+# AJAX
+Assynchronius
+JavaScript
+And
+XML (eXtend Markup Language)
+
+JSON (JavaScript Object Notation)
+
+XML Http Request - Запрос XML через HTTP
+
+
+```js
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
+}
+```
+
+# MVC
+### Model View Cpntainer
+
+
+## Model 
+Логика, бизнес - логика, работа с БД, отправка запросов, получение ответов.
+
+## View
+Отображение. Рендер данных, перерендер, управление DOM элементами, работа с DOM Events Document Object Model
+
+# Controller
+Посредник между Model & View
+
+
+### API: 
+- _randomiser_
+    - Угадай пол
+- _cocktailes_
+    - 
