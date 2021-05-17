@@ -4,7 +4,6 @@ export default class ViewSorting{
     
     constructor(handleSortingPrice){
         this.nodeToArray().map(el => el.addEventListener('click', handleSortingPrice));
-        this.getPrices();
     }
 
     nodeToArray(){
