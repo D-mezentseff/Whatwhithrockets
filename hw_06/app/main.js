@@ -1,5 +1,4 @@
 //Task 1 Калькулятор инков
-
 class Hex{
     #value
     constructor(value){
@@ -32,11 +31,10 @@ console.log(h.toString())
 console.log(h.valueOf() + 1)
 var a = new Hex(10);
 var b = new Hex(5);
-console.log(a.plus(b))
-console.log(a.minus(b))
-console.log(h.parse("0xFF"))
+console.log("A+B: ", a.plus(b))
+console.log("A-B: ", a.minus(b))
+console.log("Перевод в 10чную 0xFF: ", h.parse("0xFF"))
 $('#resTask1').click( () => alert("Результат расчёта " )) //Запуск с готовым выражением
-
 class Dictionary{
     #word
     #entrie
@@ -62,17 +60,12 @@ class Dictionary{
     }
 }
 let d = new Dictionary();
-
-
 d.newEntry("Apple", "A fruit that grows on trees");
 d.newEntry("Banana", "A fruit that grows on palms");
-
-console.log(d.look("Apple"))
-console.log(d.look("Pineapple"))
-
+console.log("Просмотр слова Apple", d.look("Apple"))
+console.log("Просмотр слова PineApple", d.look("Pineapple"))
 $('#resTask2').click( () => alert(d.look("Apple"))) //Запуск с готовым выражением
 
-// Task 3 Универсальная функция, для расчёта обслуженых Васей клиентов
 
 
 
