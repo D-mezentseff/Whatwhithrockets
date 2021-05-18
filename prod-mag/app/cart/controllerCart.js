@@ -33,6 +33,7 @@ export default class controllerCart{
         const id = ev.target.dataset.id;
             const newCart = this.model.removeById(id);
             newCart.length > 0 ? this.view.render(newCart, this.model.cartSum()) : this.view.closeModal();
+            this.load();
     }
 
     handleSubmitOrder = ev => {
