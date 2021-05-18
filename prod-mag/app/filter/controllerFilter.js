@@ -1,21 +1,14 @@
 import ViewFilter from './viewFilter.js';
+import Publisher from '../helpers/publisherSingletone.js';
 
 export default class ControllerFilter{
-    constructor(publisher){
-        this.view = new ViewFilter(this.handleFilterDates);
-
-        this.publisher = publisher;
-
-        this.publisher.subscribe('FIND_MIN_MAX_DATES', this.handleFindMinMaxDates);
-
+    constructor(){
+        this.view = new ViewFilter(this.handleCategoryFilter);
+        this.publisher = new Publisher();
     }
 
-    handleFindMinMaxDates = (minMaxDates) => {
-        this.view.setDates(minMaxDates);
-    }
-
-    handleFilterDates = () => {
-        const dates = this.view.getDates();
-        this.publisher.notify('FILTER_BY_DATES', dates);
+    handleCategoryFilter = el => {
+        this.view.setActive(el.target.dataset.category);
+        this.publisher.notify('FILTERING_BY_CATEGORIES', el.target.dataset.category);
     }
 }

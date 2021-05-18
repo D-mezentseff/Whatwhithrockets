@@ -1,4 +1,4 @@
-export default class modelCart{
+export default class ModelCart{
     #cart = [];
 
     loadFromLS(){
@@ -41,5 +41,8 @@ export default class modelCart{
 
     writeToLS(){
         localStorage.setItem('cart', JSON.stringify(this.#cart));
+    }
+    clearCart(){
+        localStorage.removeItem('cart');
     }
 }

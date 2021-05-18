@@ -1,11 +1,14 @@
-import modelCart from "./modelCart.js";
-import viewCart from "./viewCart.js";
+import ModelCart from "./modelCart.js";
+import ViewCart from "./viewCart.js";
+import Publisher from '../helpers/publisherSingletone.js';
 
 export default class controllerCart{
-    constructor(publisher){
-        this.model = new modelCart();
-        this.view = new viewCart(this.handleRemoveFromCart, this.handleOpenCart);
-        publisher.subscribe('ADD_TO_CART', this.handleAddToCart);
+    constructor(){
+        this.model = new ModelCart();
+        this.view = new ViewCart(this.handleRemoveFromCart, this.handleOpenCart, this.handleSubmitOrder);
+        this.publisher = new Publisher();
+        this.publisher.subscribe('ADD_TO_CART', this.handleAddToCart);
+        this.publisher.subscribe('CLEAR_CART', this.handleClearCart);
         this.load();
     }
 
@@ -32,4 +35,12 @@ export default class controllerCart{
             newCart.length > 0 ? this.view.render(newCart, this.model.cartSum()) : this.view.closeModal();
     }
 
+    handleSubmitOrder = ev => {
+        const products = this.load();
+        this.publisher.notify('MAKING_ORDER', products);
+    }
+    handleClearCart = () => {
+        this.model.clearCart();
+        this.view.closeModal();
+    }
 }

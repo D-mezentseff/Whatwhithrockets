@@ -1,14 +1,15 @@
-export default class viewCart{
+export default class ViewCart{
   modalClassToggle = 'is-active';
     modalFreezeBack = 'is-clipped';
-    constructor(handleRemoveFromCart, handleOpenCart){
+    constructor(handleRemoveFromCart, handleOpenCart, handleSubmitOrder){
         this.dom = document.querySelector('.cart');
         this.kol = document.querySelector('.cartel');
         this.footer = document.querySelector('.footer');
-        this.dom.addEventListener('click', handleRemoveFromCart);
         this.kol.addEventListener('click', handleOpenCart);
-        this.DOMModal = document.querySelector('.modal');
+        this.DOMModal = document.querySelector('.modal-cart');
         this.DOMFormWrapper = document.querySelector('.cart');
+        this.handleSubmitOrder = handleSubmitOrder;
+        this.handleRemoveFromCart = handleRemoveFromCart;
     }
     
     render(date, sum){
@@ -22,7 +23,8 @@ export default class viewCart{
     this.kol.innerHTML = `<i class="fas fa-shopping-cart"></i><p class="badge bg-secondary"> ${ kol }</p>`;
   }
     addListeners(){
-      //  document.querySelector('.btn_del_from_cart').addEventListener('click', this.handleSubmitChangeName);
+      document.querySelector('.btn_submit_order').addEventListener('click', this.handleSubmitOrder);
+      document.querySelector('.btn_del_from_cart').addEventListener('click', this.handleRemoveFromCart);
       [...document.querySelectorAll('.btn_close_modal_form')].forEach(el => el.addEventListener('click', this.closeModal));
   }
     renderCart({ img, manufacture, pname, price, category, idp, amount }){
@@ -48,7 +50,7 @@ export default class viewCart{
     renderFooter(sum){
       return `
       <p class="price tag is-medium is-right">All-price: ${ sum } ₴</p>
-      <button class="submit button is-danger is-light btn_submit_change_name">Submit order</button>`
+      <button class="submit button is-danger is-light btn_submit_order">Submit order</button>`
     }
     closeModal = () => {
       this.DOMModal.classList.remove(this.modalClassToggle);

@@ -9,3 +9,16 @@ height: auto;
 .submit{
     margin-left: 20px;
 }
+.card-prod{
+    margin-bottom: 10px;
+}
+.btn-cat{
+    margin-bottom: 5px;
+}
+.textr{
+    word-break: break-word;
+    word-wrap: break-word;
+}
+.subtitle{
+    word-break: break-word;
+}

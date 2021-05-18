@@ -7,8 +7,6 @@ export default class ViewFinding{
     }
 
     getNames(){
-        return {
-            Name : this.inputName.value
-        };
+        return this.inputName.value;
     }
 }

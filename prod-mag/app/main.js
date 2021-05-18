@@ -1,15 +1,17 @@
-import ControllerChange from './change/controllerChange.js';
-import ControllerDates from './dates/controllerDates.js';
+import ControllerProducts from './products/controllerProducts.js';
 import ControllerCart from './cart/controllerCart.js';
 import ControllerFilter from './filter/controllerFilter.js';
 import ControllerFinding from './finding/controllerFinding.js';
 import ControllerSorting from './sorting/controllerSorting.js';
-import Publisher from './helpers/publisher.js';
+import ControllerDetails from './details/controllerDetails.js';
+import ControllerOrder from './order/controllerOrder.js';
+import Publisher from './helpers/publisherSingletone.js';
 
 const publisher = new Publisher();
-const dates = new ControllerDates(publisher);
-const cart = new ControllerCart(publisher);
-const change = new ControllerChange(publisher);
-const filter = new ControllerFilter(publisher);
-const finding = new ControllerFinding(publisher);
-const sorting = new ControllerSorting(publisher);
+const products = new ControllerProducts();
+const cart = new ControllerCart();
+const filter = new ControllerFilter();
+const finding = new ControllerFinding();
+const sorting = new ControllerSorting();
+const details = new ControllerDetails();
+const orders = new ControllerOrder();

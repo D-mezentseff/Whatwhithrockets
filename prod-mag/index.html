@@ -12,7 +12,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand is-middle mb-0 h1">Prod-market</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -22,29 +22,33 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"><p class="cartel"><i class="fas fa-shopping-cart"></i></p></a>
+                <a class="nav-link" tabindex="-1" aria-disabled="true"><p class="cartel"><i class="fas fa-shopping-cart"></i></p></a>
               </li>
             </ul>
-            <form class="d-flex">
+            <div class="d-flex">
               <input class="form-control me-2 nameSearch" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success search-btn" type="submit">Search</button>
-            </form>
+              <button class="btn btn-outline-success search-btn" >Search</button>
+            </div>
           </div>
         </div>
       </nav>
-    <div class="container">
+    <div class="container-fluid">
         <div class="box block">
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-cat btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   Categories Filter
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#"></a></li>
-                  <li><a class="dropdown-item" href="#"></a></li>
-                  <li><a class="dropdown-item" href="#"></a></li>
+                  <li><a class="dropdown-item category" data-category="Beverages">Beverages</a></li>
+                  <li><a class="dropdown-item category" data-category="Tea & Coffee">Tea & Coffee</a></li>
+                  <li><a class="dropdown-item category" data-category="Dairy, Eggs & Cheese">Dairy, Eggs & Cheese</a></li>
+                  <li><a class="dropdown-item category" data-category="Meat & Seafood">Meat & Seafood</a></li>
+                  <li><a class="dropdown-item category" data-category="Grains, Pasta & Sides">Grains, Pasta & Sides</a></li>
+                  <li><a class="dropdown-item category" data-category="Sauces">Sauces</a></li>
+                  <li><a class="dropdown-item category" data-category="Bread & Bakery">Bread & Bakery</a></li>
+                  <li><a class="dropdown-item category" data-category="Snacks">Snacks</a></li>
+                  <li><a class="dropdown-item category" data-category="Fruits & Vegetables">Fruits & Vegetables</a></li>
+                  <li><a class="dropdown-item category" data-category="Sweets">Sweets</a></li>
                 </ul>
               </div>
               <div class="dropdown">
@@ -58,16 +62,13 @@
                 </ul>
               </div>
         </div>
-        <div class="row">
-        <div class="col block is-flex-direction-row is-flex-wrap-wrap"> 
-            <div class="container">
-                <div class="row dates"></div>
-            </div>
-        </div>
+                <div class="row d-flex row-cols-auto dates">
+              
+                </div>
         
     </div>
     </div>
-    <div class="modal">
+    <div class="modal modal-cart">
         <div class="modal-background btn_close_modal_form"></div>
         <div class="modal-card">
             <header class="modal-card-head">
@@ -75,13 +76,38 @@
                 <button class="delete btn_close_modal_form" aria-label="close"></button>
             </header>
             <div class="modal-card-body cart">
-
+            </div>
+            <div class="modal modal-order">
+              <div class="modal-background btn_close_modal_form"></div>
+              <div class="modal-card">
+                  <header class="modal-card-head">
+                      <p class="modal-card-title">Past Orders:</p>
+                      <ul class="list-group-orders list-group-flush">
+                      </ul>
+                      <button class="delete btn_close_modal_form" aria-label="close"></button>
+                  </header>
+                  <div class="modal-card-body orders">
+      
+                  </div>
+              </div> 
             </div>
             <footer class="modal-card-foot footer">
                 <p class="price tag is-medium is-right">All-price: ${ sum }</p>
                 <button 
-                    class="button is-danger is-light btn_submit_change_name">Submit order</button>
+                    class="button is-danger is-light btn_submit_order">Submit order</button>
             </footer>
+        </div> 
+      </div>
+      <div class="modal modal-details">
+        <div class="modal-background btn_close_modal_form"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Details:</p>
+                <button class="delete btn_close_modal_form" aria-label="close"></button>
+            </header>
+            <div class="modal-card-body details">
+
+            </div>
         </div> 
       </div>
     <script src="app/main.js" type="module"></script>

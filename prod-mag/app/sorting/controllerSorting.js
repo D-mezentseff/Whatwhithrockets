@@ -1,9 +1,10 @@
 import ViewSorting from './viewSorting.js';
+import Publisher from '../helpers/publisherSingletone.js';
 
 export default class ControllerSorting{
-    constructor(publisher){
+    constructor(){
         this.view = new ViewSorting(this.handleSortingPrices);
-        this.publisher = publisher;
+        this.publisher = new Publisher();
     }
 
     handleSortingPrices = el => {

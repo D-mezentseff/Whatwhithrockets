@@ -1,21 +1,20 @@
 export default class ViewFilter{
-    btnDateFilter = document.querySelector('.btn_date_filter');
-    inputDateStart = document.querySelector('.inp_date_start');
-    inputDateFinish = document.querySelector('.inp_date_finish');
-
-    constructor(handleFilterDates){
-        // this.btnDateFilter.addEventListener('click', handleFilterDates);
+    dropdwCategoryFilter = document.querySelectorAll('.category');
+    
+    constructor(handleCategoryFilter){
+        this.nodeToArray().map(el => el.addEventListener('click', handleCategoryFilter));
     }
 
-    setDates({ min, max }){
-        this.inputDateStart.value = min;
-        this.inputDateFinish.value = max;
+    nodeToArray(){
+        let array = [];
+        for (let i = 0, len = this.dropdwCategoryFilter.length; i < len; i++) {
+            array[i] = this.dropdwCategoryFilter[i];
+        }
+        return array;
     }
 
-    getDates(){
-        return {
-            min : this.inputDateStart.value,
-            max : this.inputDateFinish.value
-        };
+    setActive(type){
+        this.dropdwCategoryFilter.forEach(el => {
+            if(el.dataset.category == type) el.classList.contains("active") ? el.classList.remove("active") : el.classList.add("active")})
     }
 }
